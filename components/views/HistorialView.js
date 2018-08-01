@@ -33,7 +33,7 @@ export default class HistorialView extends Component {
 
     render() {
         var items = this.state.user.rewards.map((reward, index) => {                        
-            if(!reward.used){
+            if(reward.used){
                 var rawRewards = this.getRewards();
                 if(rawRewards[reward.reward_id]){
                     var obj = rawRewards[reward.reward_id]

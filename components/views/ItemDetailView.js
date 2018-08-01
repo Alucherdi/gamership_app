@@ -15,7 +15,7 @@ export default class ItemDetailView extends Component {
 	}
 
     render() {
-        var code = this.state.itemData.type == "Code" ? (<CodeViewer code={this.state.itemData.consumable}/>) : (<QRCodeViewer/>) ;
+        var code = this.state.itemData.type == "Code" ? (<CodeViewer code={this.state.itemData.consumable}/>) : (<QRCodeViewer code={this.state.itemData.consumable}/>) ;
         var expirationDate = this.state.itemData.date == 'xx/xx/xx' ? (<ExpirationDate/>) : undefined;
         return (
             <ScrollView>

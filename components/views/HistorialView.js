@@ -32,8 +32,8 @@ export default class HistorialView extends Component {
     }
 
     render() {
-        var entry = this.state.user.rewards.map((reward, index) => {                        
-            if(reward.used){
+        var items = this.state.user.rewards.map((reward, index) => {                        
+            if(!reward.used){
                 var rawRewards = this.getRewards();
                 if(rawRewards[reward.reward_id]){
                     var obj = rawRewards[reward.reward_id]
@@ -41,7 +41,9 @@ export default class HistorialView extends Component {
                         name: obj.name,
                         image: obj.image,
                         type: obj.type,
-                        consumable: reward.consumable                        
+                        description: 'Ve a caja y pide que te escaneen el siguiente código QR para que disfrutes de 1 HORA de juego en Arena The Place to Play',
+                        date: 'xx/xx/xx',
+                        consumable: reward.consumable
                     }                   
                     return (
                         <ItemCard navigation={this.props.navigation} data={data} key={index}/>
@@ -55,7 +57,7 @@ export default class HistorialView extends Component {
                     <Text style={{textAlign: 'center', color: '#BA8B49', fontWeight: 'bold'}}>Inventario</Text>
                 </View>
                 <ScrollView style={styles.mainContainer}>
-                    {entry}
+                    {items}
                 </ScrollView>
             </View>
         )

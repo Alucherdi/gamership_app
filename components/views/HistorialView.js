@@ -54,7 +54,7 @@ export default class HistorialView extends Component {
         return ( 
             <View>
                 <View style={[styles.tabTitle , styles.shadow]}>
-                    <Text style={{textAlign: 'center', color: '#BA8B49', fontWeight: 'bold'}}>Inventario</Text>
+                    <Text style={{textAlign: 'center', color: '#BA8B49', fontWeight: 'bold'}}>Historial</Text>
                 </View>
                 <ScrollView style={styles.mainContainer}>
                     {items}

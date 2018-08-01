@@ -15,14 +15,16 @@ export default class ItemDetailView extends Component {
 	}
 
     render() {
+        var code = this.state.itemData.type == "Code" ? (<CodeViewer code={this.state.itemData.consumable}/>) : (<QRCodeViewer/>) ;
+        var expirationDate = this.state.itemData.date == 'xx/xx/xx' ? (<ExpirationDate/>) : undefined;
         return (
             <ScrollView>
                 <ImageBackground
-                source={{uri: this.state.itemData.urlImage}}
+                source={{uri: this.state.itemData.image}}
                 style={styles.headerImageContainer}
                 >
                     <View style={styles.textHeaderContainer}>
-                        <Text style={styles.textTitleHeader}>{this.state.itemData.title}</Text>
+                        <Text style={styles.textTitleHeader}>{this.state.itemData.name}</Text>
                         <TouchableHighlight 
                         style={styles.backButton}
                         onPress={() => this.props.navigation.goBack()}
@@ -32,10 +34,9 @@ export default class ItemDetailView extends Component {
                     </View>
                 </ImageBackground>
                 <View style={styles.detailsContainer}>
-                    <Text style={styles.descriptionText}>Ve a caja y pide que te escaneen el siguiente código QR para que disfrutes de 1 HORA de juego en Arena The Place to Play</Text>
-                    <CodeViewer/>
-                    <QRCodeViewer/>
-                    <ExpirationDate/>
+                    <Text style={styles.descriptionText}>{this.state.itemData.description}</Text>
+                    {code}
+                    {expirationDate}
                     <TouchableHighlight style={[styles.button , styles.shadow , {backgroundColor: '#BA8B49'}]}>
                         <Text style={{color: '#f2f2f2', fontWeight: 'bold', fontSize: 20}}>Regalar a un amigo</Text>
                     </TouchableHighlight>

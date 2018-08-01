@@ -28,8 +28,6 @@ export default class Login extends Component {
 				alert("Datos incorrectos")
 			}
         })
-        
-        //this.props.navigation.navigate('Home')
     }
 
     render() {

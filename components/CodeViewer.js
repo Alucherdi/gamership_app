@@ -6,7 +6,7 @@ export default class CodeViewer extends Component {
     render() {
         return (
             <View>
-                <Text>CODE</Text>
+                <Text>{this.props.code}</Text>
             </View>
         )
     }

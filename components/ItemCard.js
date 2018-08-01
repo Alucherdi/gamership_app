@@ -12,12 +12,12 @@ export default class ItemCard extends Component {
             >
                 <View>
                     <Image
-                    source={{uri: this.props.data.urlImage}}
+                    source={{uri: this.props.data.image}}
                     style={styles.image}
                     >
                     </Image>
                     <View style={styles.textContainer}>
-                        <Text style={styles.title} numberOfLines={2}>{this.props.data.title}</Text>
+                        <Text style={styles.title} numberOfLines={2}>{this.props.data.name}</Text>
                     </View>
                 </View>
             </TouchableHighlight>

@@ -40,7 +40,7 @@ class TabBar extends Component {
 					<TouchableHighlight
 						style={styles.tabBtn}
 						underlayColor='#333333'
-						onPress={() => this.props.navigation.navigate('Inventario')}
+						onPress={() => this.props.navigation.navigate('Inventario',{user: this.state.user})}
 					>
 						<Icon name="ticket" size={20} color="#BA8B49" />
 					</TouchableHighlight>

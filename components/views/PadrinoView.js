@@ -7,7 +7,7 @@ export default class PadrinoView extends Component {
         return (
             <View>
                 <View style={[styles.tabTitle , styles.shadow]}>
-                    <Text style={{textAlign: 'center', color: '#BA8B49', fontWeight: 'bold'}}>Mis padrinos</Text>
+                    <Text style={{textAlign: 'center', color: '#BA8B49', fontWeight: 'bold'}}>Mi padrino</Text>
                 </View>
                 <ScrollView style={styles.mainContainer}>
                 </ScrollView>

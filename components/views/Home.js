@@ -9,6 +9,7 @@ import HistorialView from './HistorialView';
 import InventarioView from './InventarioView';
 import PadrinoView from './PadrinoView';
 import TournamentsView from './TournamentsView';
+import BuyGamershipView from './BuyGamershipView';
 
 class TabBar extends Component {
 	constructor(props) {
@@ -19,8 +20,8 @@ class TabBar extends Component {
 	}
 	
 	render() {
-		return (
-			<View style={[styles.mainContainer, styles.shadow]}>
+		return (			
+			<View style={[styles.mainContainer, styles.shadow]}>				
 				<View style={styles.userInfoContainer}>
 					<Image
 						style={styles.userProfilePhoto}
@@ -58,6 +59,13 @@ class TabBar extends Component {
 					>
 						<Icon name="gamepad" size={20} color="#BA8B49" />
 					</TouchableHighlight>
+					<TouchableHighlight
+						style={styles.tabBtn}
+						underlayColor='#333333'
+						onPress={() => this.props.navigation.navigate('BuyGamership')}
+					>
+						<Icon name="shopping-cart" size={20} color="#BA8B49" />
+					</TouchableHighlight>
 				</View>
 			</View>
 		)
@@ -68,7 +76,8 @@ export default createMaterialTopTabNavigator({
 	Historial: HistorialView,
 	Inventario: InventarioView,
 	Padrino: PadrinoView,
-	Tournaments: TournamentsView
+	Tournaments: TournamentsView,
+	BuyGamership: BuyGamershipView
 }, {
 		initialRouteName: 'Inventario',
 		tabBarComponent: TabBar

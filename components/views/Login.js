@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, TextInput, Image, TouchableHighlight } from 'react-native'
+import { StyleSheet, Text, View, TextInput, Image, TouchableHighlight, StatusBar } from 'react-native'
 
 import LoginController from "../controllers/Login.controller"
 
@@ -33,6 +33,7 @@ export default class Login extends Component {
     render() {
         return (
             <View style={styles.mainContainer}>
+            <StatusBar hidden/>
                 <View style={[styles.loginHeader, styles.shadow]}>
                     <Image source={require('../../src/images/color_logo_transparent.png')} style={{width: '70%', height: '70%'}}/>
                 </View>

@@ -6,7 +6,7 @@ export default class ExpirationDate extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.dataText}>EXPIRA EL:</Text>
+                <Text style={styles.dataText}>EXPIRA EL: </Text>
                 <Text style={styles.dataText}>DD/MM/YYYY</Text>
             </View>
         )

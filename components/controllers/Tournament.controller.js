@@ -1,8 +1,9 @@
 import props from "../utils/properties"
 
-class LoginController {
-	doLogin(_params) {
-		return fetch(props.user.login, {
+class TournamentController {
+	
+	getTournaments(_params) {
+		return fetch(props.user.tournaments, {
 				method: "POST",
 				headers: {
 					"Content-type": "application/json"
@@ -17,4 +18,4 @@ class LoginController {
 	}
 }
 
-export default LoginController
+export default TournamentController

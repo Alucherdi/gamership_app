@@ -9,46 +9,40 @@ export default class HistorialView extends Component {
         super(props)        
 		this.state = {
             user: this.props.navigation.state.params.user,
-            rawRewards: []
+            rewards: []
 		}
-    }
-
-    getRewards(){        
-		var rewards = {}
-		for (var reward of this.state.rawRewards) {
-			rewards[reward.reward_id] = reward
-		}
-		return rewards
     }
 
     componentDidMount = () =>{
         var controller = new RewardController()
         controller.getRewards(this.state.user.email).then(rewards =>{
-            this.setState({
-                rawRewards: rewards
-            })
+            if(rewards.code == 200){
+                this.setState({
+                    rewards: rewards.rewards
+                })
+            }else{
+                this.setState({
+                    rewards: []
+                })
+            }
         })
         
     }
 
     render() {
-        var items = this.state.user.rewards.map((reward, index) => {                        
+        var items = this.state.rewards.map((reward, index) => {
             if(reward.used){
-                var rawRewards = this.getRewards();
-                if(rawRewards[reward.reward_id]){
-                    var obj = rawRewards[reward.reward_id]
-                    var data = {
-                        name: obj.name,
-                        image: obj.image,
-                        type: obj.type,
-                        description: 'Ve a caja y pide que te escaneen el siguiente código QR para que disfrutes de 1 HORA de juego en Arena The Place to Play',
-                        date: 'xx/xx/xx',
-                        consumable: reward.consumable
-                    }                   
-                    return (
-                        <ItemCard navigation={this.props.navigation} data={data} key={index}/>
-                    )
-                }                
+                var data = {
+                    name: reward.name,
+                    image: reward.image,
+                    type: reward.type,
+                    description: 'Ve a caja y pide que te escaneen el siguiente código QR para que disfrutes de 1 HORA de juego en Arena The Place to Play',
+                    date: 'xx/xx/xx',
+                    consumable: reward.consumable
+                }                   
+                return (
+                    <ItemCard navigation={this.props.navigation} data={data} key={index}/>
+                )               
             }
         })
         return ( 

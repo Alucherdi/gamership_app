@@ -12,12 +12,17 @@ export default class InventarioView extends Component {
             rewards: []
 		}
     }
+
     componentDidMount = () =>{
         var controller = new RewardController()
         controller.getRewards(this.state.user.email).then(rewards =>{
             if(rewards.code == 200){
                 this.setState({
                     rewards: rewards.rewards
+                })
+            }else{
+                this.setState({
+                    rewards: []
                 })
             }
         })
